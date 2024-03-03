@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_tab_mobile_reponsive/responsive.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
@@ -14,6 +15,8 @@ class Header extends StatelessWidget {
       padding: const EdgeInsets.all(kDefaultPadding),
       child: Row(
         children: [
+          //there's no way going back
+          if (Responsive.isMobile(context)) const BackButton(),
           IconButton(
             icon: WebsafeSvg.asset(
               "assets/Icons/Trash.svg",
@@ -21,7 +24,7 @@ class Header extends StatelessWidget {
             ),
             onPressed: () {},
           ),
-          SizedBox(width: kDefaultPadding / 2),
+          // const SizedBox(width: kDefaultPadding / 2),
           IconButton(
             icon: WebsafeSvg.asset(
               "assets/Icons/Reply.svg",
@@ -29,7 +32,7 @@ class Header extends StatelessWidget {
             ),
             onPressed: () {},
           ),
-          SizedBox(width: kDefaultPadding / 2),
+          // const SizedBox(width: kDefaultPadding / 2),
           IconButton(
             icon: WebsafeSvg.asset(
               "assets/Icons/Reply all.svg",
@@ -37,7 +40,7 @@ class Header extends StatelessWidget {
             ),
             onPressed: () {},
           ),
-          SizedBox(width: kDefaultPadding / 2),
+          //  const SizedBox(width: kDefaultPadding / 2),
           IconButton(
             icon: WebsafeSvg.asset(
               "assets/Icons/Transfer.svg",
@@ -45,15 +48,17 @@ class Header extends StatelessWidget {
             ),
             onPressed: () {},
           ),
-          Spacer(),
-          IconButton(
-            icon: WebsafeSvg.asset(
-              "assets/Icons/Printer.svg",
-              width: 24,
+          const Spacer(),
+          //we don't need printer option on mobile
+          if (Responsive.isMobile(context))
+            IconButton(
+              icon: WebsafeSvg.asset(
+                "assets/Icons/Printer.svg",
+                width: 24,
+              ),
+              onPressed: () {},
             ),
-            onPressed: () {},
-          ),
-          SizedBox(width: kDefaultPadding / 2),
+          // const SizedBox(width: kDefaultPadding / 2),
           IconButton(
             icon: WebsafeSvg.asset(
               "assets/Icons/Markup.svg",
@@ -61,7 +66,7 @@ class Header extends StatelessWidget {
             ),
             onPressed: () {},
           ),
-          SizedBox(width: kDefaultPadding / 2),
+          // const SizedBox(width: kDefaultPadding / 2),
           IconButton(
             icon: WebsafeSvg.asset(
               "assets/Icons/More vertical.svg",
@@ -69,7 +74,7 @@ class Header extends StatelessWidget {
             ),
             onPressed: () {},
           ),
-          SizedBox(width: kDefaultPadding / 2),
+          // const SizedBox(width: kDefaultPadding / 2),
         ],
       ),
     );

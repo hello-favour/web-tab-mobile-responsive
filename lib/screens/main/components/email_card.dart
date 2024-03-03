@@ -19,8 +19,9 @@ class EmailCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //here the shadow not showing properly
     return Padding(
-      padding: const EdgeInsets.only(top: 20), // Added const
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding,vertical: kDefaultPadding / 2),
       child: InkWell(
         onTap: press,
         child: Stack(
@@ -91,7 +92,7 @@ class EmailCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: kDefaultPadding / 2),
+                  const SizedBox(height: kDefaultPadding / 2),
                   Text(
                     email.body ?? "",
                     maxLines: 2,
